@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<div class="container-paymentData">
+  <section class="btn-actions">
+    <button>Pesquisar</button>
+    <button>Adicionar</button>
+  </section>
+
+  <section class="table">
+    <table>
+      <thead>
+        <tr>
+          <th>Usuário</th>
+          <th>Título</th>
+          <th>Data</th>
+          <th>Valor</th>
+          <th>Pago</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payment of payments">
+          <td>{{ payment.name }}</td>
+          <td>{{ payment.title }}</td>
+          <td>{{ payment.date }}</td>
+          <td>{{ payment.value }}</td>
+          <td>{{ payment.isPayed }}</td>
+          <td>
+            <button>editar</button>
+            <button>excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="pagination"></section>
+</div>
+
+<app-footer></app-footer>
