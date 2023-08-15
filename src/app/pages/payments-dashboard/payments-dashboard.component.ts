@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { PaymentData } from 'src/app/interfaces/payment-data';
 import { PaymentDataService } from 'src/app/services/payment/payment-data.service';
 
@@ -10,19 +9,24 @@ import { PaymentDataService } from 'src/app/services/payment/payment-data.servic
 })
 export class PaymentsDashboardComponent implements OnInit {
 
+  pageTitle: string = "Dashboard Pagamentos";
   payments: PaymentData[] = [];
   currentPage: number = 1;
   paymentsPerPage: number = 5;
+  showDeleteModal: boolean = false;
+  paymentIdToDelete: number | null = null;
+  shouldShowDirectionLinks: boolean = false;
+
 
   constructor(
     private paymentDataService: PaymentDataService,
-    private fb: FormBuilder
   ) { }
 
 
   ngOnInit(): void {
     this.paymentDataService.getPayments().subscribe(payments => {
       this.payments = this.sortPayments(payments);
+      this.shouldShowDirectionLinks = this.calculateShouldShowDirectionLinks();
     })
   }
 
@@ -33,5 +37,41 @@ export class PaymentsDashboardComponent implements OnInit {
       }
       return a.isPayed ? -1 : 1;
     });
+  }
+
+  openDeleteModal(paymentId: number): void {
+    this.paymentIdToDelete = paymentId;
+    this.showDeleteModal = true;
+    console.log("OpenDelete");
+
+  }
+
+  cancelDelete(): void {
+    this.showDeleteModal = false;
+    this.paymentIdToDelete = null;
+    console.log("CancelDelete");
+  }
+
+  confirmDelete(): void {
+    console.log("ConfirmDelete");
+    if (this.paymentIdToDelete !== null) {
+      this.paymentDataService.deletePayment(this.paymentIdToDelete).subscribe(
+      response => {
+        this.payments = this.payments.filter(payment => payment.id !== this.paymentIdToDelete);
+        this.paymentDataService.getPayments().subscribe(payments => {
+          this.payments = this.sortPayments(payments);
+          this.cancelDelete();
+        });
+      },
+      error => {
+        console.error('Erro na exclusão:', error);
+      });
+    }
+
+  }
+
+  calculateShouldShowDirectionLinks(): boolean {
+    const totalPages = Math.ceil(this.payments.length / this.paymentsPerPage);
+    return totalPages > 3;
   }
 }

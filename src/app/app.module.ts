@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import localePt from '@angular/common/locales/pt';
+import { AddPaymentComponent } from './pages/add-payment/add-payment.component';
+import { EditPaymentComponent } from './pages/edit-payment/edit-payment.component';
 
 registerLocaleData(localePt);
 
@@ -19,7 +21,9 @@ registerLocaleData(localePt);
     AppComponent,
     LoginComponent,
     PaymentsDashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    AddPaymentComponent,
+    EditPaymentComponent
   ],
   imports: [
     BrowserModule,

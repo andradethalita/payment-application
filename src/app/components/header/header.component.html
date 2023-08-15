@@ -1,8 +1,9 @@
 <header class="app-header ff-inter">
   <div class="left-content">
-    <span class="app-title">Dashboard Pagamentos</span>
+    <span class="app-title">{{ title  }}</span>
   </div>
   <div class="right-content">
+      <button class="btn-back"  *ngIf="showBackButton" (click)="toGoBack()">Voltar Dashboard</button>
       <button (click)="logout()">Logout</button>
   </div>
 </header>

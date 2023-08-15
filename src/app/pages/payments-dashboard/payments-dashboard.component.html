@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header [title]="pageTitle"></app-header>
 
-<div class="container-paymentData ff-roboto-mono">
+<div class="container-paymentData ff-roboto-mono" *ngIf="payments.length > 0; else noPayments">
   <section class="actions">
    <input type="text" placeholder="Pesquisar">
-    <button>Adicionar</button>
+   <a routerLink="/add-payment">Adicionar</a>
   </section>
 
   <section class="table">
@@ -28,8 +28,8 @@
             <input type="checkbox" [checked]="payment.isPayed" disabled />
           </td>
           <td>
-            <button class="btn-actions">editar</button>
-            <button class="btn-actions">excluir</button>
+            <button class="btn-actions" routerLink="/edit-payment">editar</button>
+            <button class="btn-actions" (click)="openDeleteModal(payment.id)">excluir</button>
           </td>
         </tr>
       </tbody>
@@ -37,6 +37,30 @@
   </section>
 
   <section class="pagination">
-    <pagination-controls class="pagination-table" (pageChange)="currentPage = $event" nextLabel="" previousLabel="" [maxSize]="3" [directionLinks]="false"></pagination-controls>
+    <pagination-controls class="pagination-table" (pageChange)="currentPage = $event" nextLabel="" previousLabel="" [maxSize]="3" [directionLinks]="shouldShowDirectionLinks"></pagination-controls>
   </section>
 </div>
+
+<ng-container *ngIf="showDeleteModal">
+  <ng-container *ngTemplateOutlet="deleteModal"></ng-container>
+</ng-container>
+
+<ng-template #noPayments>
+  <div class="no-data-message">
+    <p>Não há dados de pagamento.</p>
+    <button class="add-payment-button">Adicionar</button>
+  </div>
+</ng-template>
+
+<ng-template #deleteModal>
+  <div class="modal-background ff-inter" (click)="cancelDelete()">
+    <div class="modal-content">
+      <h2>Confirmar Exclusão</h2>
+      <p>Você tem certeza que deseja excluir esse item?</p>
+      <div class="button-container">
+        <button class="cancel-button" (click)="cancelDelete()">Cancelar</button>
+        <button class="confirm-button" (click)="confirmDelete()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

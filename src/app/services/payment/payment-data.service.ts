@@ -15,4 +15,9 @@ export class PaymentDataService {
   getPayments(): Observable<PaymentData[]> {
     return this.http.get<PaymentData[]>(this.apiUrl);
   }
+
+  deletePayment(id: number): Observable<PaymentData> {
+    const url = `${this.apiUrl}/${id}`
+    return this.http.delete<PaymentData>(url)
+  }
 }
