@@ -1,0 +1,80 @@
+.container-paymentData {
+  margin: 40px;
+}
+
+.actions {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    padding: 10px;
+    border: 1px solid #238662;
+    background-color: white;
+    border-radius: 4px;
+    width: 400px;
+  }
+
+  button {
+    background-color: white;
+    color: #238662;
+    font-weight: bold;
+    border-radius: 4px;
+    border: 1px solid #238662;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 200px;
+
+    &:hover {
+      background-color: #238662;
+      color: white;
+    }
+  }
+}
+
+.table {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #238662;
+      color: white;
+    }
+
+    td {
+      background-color: white;
+      color: black;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .btn-actions {
+      background-color: #238662;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+  }
+}
+
+.pagination{
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+
+  .pagination-table ::ng-deep .ngx-pagination .current{
+    background-color: #238662;
+  }
+}

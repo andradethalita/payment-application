@@ -1,8 +1,8 @@
 <app-header></app-header>
 
-<div class="container-paymentData">
-  <section class="btn-actions">
-    <button>Pesquisar</button>
+<div class="container-paymentData ff-roboto-mono">
+  <section class="actions">
+   <input type="text" placeholder="Pesquisar">
     <button>Adicionar</button>
   </section>
 
@@ -19,22 +19,24 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let payment of payments">
+        <tr *ngFor="let payment of payments | paginate: { itemsPerPage: paymentsPerPage, currentPage: currentPage}">
           <td>{{ payment.name }}</td>
           <td>{{ payment.title }}</td>
-          <td>{{ payment.date }}</td>
-          <td>{{ payment.value }}</td>
-          <td>{{ payment.isPayed }}</td>
+          <td>{{ payment.date | date:'dd/MM/yyyy' }}</td>
+          <td>{{ payment.value |  currency:'BRL' }}</td>
           <td>
-            <button>editar</button>
-            <button>excluir</button>
+            <input type="checkbox" [checked]="payment.isPayed" disabled />
+          </td>
+          <td>
+            <button class="btn-actions">editar</button>
+            <button class="btn-actions">excluir</button>
           </td>
         </tr>
       </tbody>
     </table>
   </section>
 
-  <section class="pagination"></section>
+  <section class="pagination">
+    <pagination-controls class="pagination-table" (pageChange)="currentPage = $event" nextLabel="" previousLabel="" [maxSize]="3" [directionLinks]="false"></pagination-controls>
+  </section>
 </div>
-
-<app-footer></app-footer>
