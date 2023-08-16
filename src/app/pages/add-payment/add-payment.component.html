@@ -5,30 +5,46 @@
 
   <form [formGroup]="formAddPayment">
     <section>
-      <label for="">Usuário</label>
-      <input type="text">
+      <label for="name">Usuário</label>
+      <input type="text" formControlName="name" id="name">
 
-      <div class="errors"></div>
+      <div class="errors">
+        <div  *ngIf="formAddPayment.get('name')?.invalid && formAddPayment.get('name')?.touched">O nome é obrigatório</div>
+      </div>
     </section>
+
     <section>
-      <label for="">Título</label>
-      <input type="text">
+      <label for="title">Título</label>
+      <input type="text" formControlName="title" id="title">
 
-      <div class="errors"></div>
+      <div class="errors">
+        <div  *ngIf="formAddPayment.get('title')?.invalid && formAddPayment.get('title')?.touched">O título é obrigatório</div>
+      </div>
     </section>
+
     <section>
-      <label for="">Data</label>
-      <input type="text">
+      <label for="number">Valor</label>
+      <input type="number" formControlName="value" id="value">
 
-      <div class="errors"></div>
+      <div class="errors">
+        <div *ngIf="formAddPayment.get('value')?.invalid && formAddPayment.get('value')?.touched">
+          O valor é obrigatório e deve ser maior ou igual a 0.
+        </div>
+      </div>
     </section>
+
+
     <section>
-      <label for="">Valor</label>
-      <input type="text">
+      <label for="date">Data</label>
+      <input type="date" formControlName="date" id="date">
 
-      <div class="errors"></div>
+      <div class="errors">
+        <div *ngIf="formAddPayment.get('date')?.invalid && formAddPayment.get('date')?.touched">
+          A data é obrigatória.
+        </div>
+      </div>
     </section>
 
-    <button>Salvar</button>
+    <button (click)="addPaymentData()">Salvar</button>
   </form>
 </div>

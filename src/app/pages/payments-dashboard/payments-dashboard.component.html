@@ -28,7 +28,7 @@
             <input type="checkbox" [checked]="payment.isPayed" (change)="onCheckboxChange(payment)"/>
           </td>
           <td>
-            <button class="btn-actions" routerLink="/edit-payment">editar</button>
+            <button class="btn-actions" routerLink="/edit-payment/{{payment.id}}">editar</button>
             <button class="btn-actions" (click)="openDeleteModal(payment.id)">excluir</button>
           </td>
         </tr>

@@ -3,22 +3,9 @@
     {
       "id": 5,
       "name": "Michael Brown",
-      "username": "mbrown",
-      "title": "Backend Developer",
-      "value": 150.25,
-      "date": "2023-05-05T11:00:00Z",
-      "image": "https://robohash.org/michaelbrown.png?size=150x150&set=set1",
-      "isPayed": true
-    },
-    {
-      "id": 7,
-      "name": "Daniel Johnson",
-      "username": "dj2023",
-      "title": "Data Scientist",
-      "value": 180.75,
-      "date": "2023-03-15T09:45:00Z",
-      "image": "https://robohash.org/danieljohnson.png?size=150x150&set=set1",
-      "isPayed": true
+      "title": "Backend Dev",
+      "value": 1000,
+      "date": "2023-05-05T11:00:00Z"
     },
     {
       "id": 8,
@@ -38,17 +25,15 @@
       "value": 220.5,
       "date": "2023-01-25T13:10:00Z",
       "image": "https://robohash.org/ethanwilliams.png?size=150x150&set=set1",
-      "isPayed": true
+      "isPayed": false
     },
     {
       "id": 10,
       "name": "Olivia Martin",
-      "username": "oliviam",
       "title": "Content Writer",
-      "value": 80,
+      "value": 8080,
       "date": "2022-12-12T11:30:00Z",
-      "image": "https://robohash.org/oliviamartin.png?size=150x150&set=set1",
-      "isPayed": true
+      "isPayed": false
     },
     {
       "id": 11,
@@ -61,16 +46,6 @@
       "isPayed": true
     },
     {
-      "id": 13,
-      "name": "James Smith",
-      "username": "jamess",
-      "title": "DevOps Engineer",
-      "value": 200,
-      "date": "2022-09-20T12:45:00Z",
-      "image": "https://robohash.org/jamessmith.png?size=150x150&set=set1",
-      "isPayed": true
-    },
-    {
       "id": 15,
       "name": "Noah Wilson",
       "username": "noahw",
@@ -78,7 +53,7 @@
       "value": 130.5,
       "date": "2022-07-01T10:00:00Z",
       "image": "https://robohash.org/noahwilson.png?size=150x150&set=set1",
-      "isPayed": true
+      "isPayed": false
     },
     {
       "id": 16,
@@ -88,16 +63,30 @@
       "value": 180,
       "date": "2022-08-08T15:15:00Z",
       "image": "https://robohash.org/isabellabrown.png?size=150x150&set=set1",
+      "isPayed": false
+    },
+    {
+      "id": 22,
+      "name": "Dielly",
+      "title": "Devops III",
+      "value": 5499,
+      "date": "1789-08-14",
       "isPayed": true
     },
     {
-      "id": 17,
-      "name": "Laura Vial",
-      "username": "laravia",
-      "title": "Data Analyst",
-      "value": 130.5,
-      "date": "2022-07-01T10:00:00Z",
-      "image": "https://robohash.org/noahwilson.png?size=150x150&set=set1",
+      "name": "Luciana",
+      "title": "Dev",
+      "value": 5555,
+      "date": "1977-07-28",
+      "id": 23,
+      "isPayed": false
+    },
+    {
+      "id": 24,
+      "name": "Thalita Andrade",
+      "title": "Dev Angular",
+      "value": 985.968,
+      "date": "1996-07-28",
       "isPayed": true
     }
   ],

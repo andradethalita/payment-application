@@ -19,7 +19,7 @@ export class PaymentsDashboardComponent implements OnInit {
 
 
   constructor(
-    private paymentDataService: PaymentDataService,
+    private paymentDataService: PaymentDataService
   ) { }
 
 
@@ -87,7 +87,6 @@ onCheckboxChange(payment: PaymentData): void {
         console.error('Erro na exclusão:', error);
       });
     }
-
   }
 
   calculateShouldShowDirectionLinks(): boolean {

@@ -30,4 +30,18 @@ export class PaymentDataService {
     payment.isPayed = !payment.isPayed
     return this.updatePayment(payment)
   }
+
+  createPaymentData(payment: PaymentData): Observable <PaymentData>{
+    return this.http.post<PaymentData>(this.apiUrl, payment)
+  }
+
+  editPaymentData(payment: PaymentData): Observable <PaymentData> {
+    const url = `${this.apiUrl}/${payment.id}`
+    return this.http.put<PaymentData>(url, payment)
+  }
+
+  searchById(id: number): Observable <PaymentData> {
+    const url = `${this.apiUrl}/${id}`
+    return this.http.get<PaymentData>(url);
+  }
 }
