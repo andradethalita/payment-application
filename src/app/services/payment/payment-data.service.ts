@@ -20,4 +20,14 @@ export class PaymentDataService {
     const url = `${this.apiUrl}/${id}`
     return this.http.delete<PaymentData>(url)
   }
+
+  updatePayment(payment: PaymentData): Observable <PaymentData> {
+    const url = `${this.apiUrl}/${payment.id}`;
+    return this.http.put<PaymentData>(url, payment);
+  }
+
+  changeStatusIsPayed(payment: PaymentData): Observable <PaymentData> {
+    payment.isPayed = !payment.isPayed
+    return this.updatePayment(payment)
+  }
 }

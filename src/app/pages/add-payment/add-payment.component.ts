@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-payment',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-payment.component.scss']
 })
 export class AddPaymentComponent implements OnInit {
+
+  formAddPayment!: FormGroup;
 
   pageTitle: string = "Adicionar Pagamento";
 

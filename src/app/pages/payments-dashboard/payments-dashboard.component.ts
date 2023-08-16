@@ -24,18 +24,38 @@ export class PaymentsDashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.getPayments();
+  }
+
+  getPayments(): void {
     this.paymentDataService.getPayments().subscribe(payments => {
       this.payments = this.sortPayments(payments);
       this.shouldShowDirectionLinks = this.calculateShouldShowDirectionLinks();
     })
   }
 
+onCheckboxChange(payment: PaymentData): void {
+    this.paymentDataService.changeStatusIsPayed(payment).subscribe(
+      () => {
+        const updatedPaymentIndex = this.payments.findIndex(p => p.id === payment.id);
+        if (updatedPaymentIndex !== -1) {
+          this.payments[updatedPaymentIndex].isPayed = payment.isPayed;
+          this.payments = this.sortPayments(this.payments);
+        }
+      },
+      error => {
+        console.error('Erro ao atualizar o valor isPayed no servidor:', error);
+        payment.isPayed = !payment.isPayed;
+      }
+    );
+  }
+
   sortPayments(payments: PaymentData[]): PaymentData[] {
     return payments.sort((a, b) => {
-      if (a.isPayed === b.isPayed) {
-        return 0;
+      if (a.isPayed !== b.isPayed) {
+        return a.isPayed ? -1 : 1;
       }
-      return a.isPayed ? -1 : 1;
+      return a.name.localeCompare(b.name);
     });
   }
 

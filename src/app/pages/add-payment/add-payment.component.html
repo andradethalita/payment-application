@@ -1,1 +1,34 @@
 <app-header [title]="pageTitle"></app-header>
+
+<div class="form">
+  <h2>Adicione um novo dado de pagamento</h2>
+
+  <form [formGroup]="formAddPayment">
+    <section>
+      <label for="">Usuário</label>
+      <input type="text">
+
+      <div class="errors"></div>
+    </section>
+    <section>
+      <label for="">Título</label>
+      <input type="text">
+
+      <div class="errors"></div>
+    </section>
+    <section>
+      <label for="">Data</label>
+      <input type="text">
+
+      <div class="errors"></div>
+    </section>
+    <section>
+      <label for="">Valor</label>
+      <input type="text">
+
+      <div class="errors"></div>
+    </section>
+
+    <button>Salvar</button>
+  </form>
+</div>
