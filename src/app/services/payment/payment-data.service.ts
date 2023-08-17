@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PaymentData } from 'src/app/interfaces/payment-data';
@@ -11,6 +11,21 @@ export class PaymentDataService {
   private apiUrl = 'http://localhost:3000/payments';
 
   constructor( private http: HttpClient) { }
+
+  listPayments(filter: string, page: number): Observable<PaymentData[]> {
+
+    const itemsPerPage = 5;
+
+    let params = new HttpParams()
+      .set("_page", page)
+      .set("_limit", itemsPerPage)
+
+    if(filter.trim().length > 2 ) {
+      params = params.set("q", filter)
+    }
+
+    return this.http.get<PaymentData[]>(this.apiUrl, { params })
+  }
 
   getPayments(): Observable<PaymentData[]> {
     return this.http.get<PaymentData[]>(this.apiUrl);

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PaymentsDashboardComponent } from './pages/payments-dashboard/payments-dashboard.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -31,7 +31,8 @@ registerLocaleData(localePt);
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt' }

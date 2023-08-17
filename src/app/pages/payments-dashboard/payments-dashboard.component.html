@@ -1,9 +1,17 @@
 <app-header [title]="pageTitle"></app-header>
 
-<div class="container-paymentData ff-roboto-mono" *ngIf="payments.length > 0; else noPayments">
+<div class="container-paymentData ff-roboto-mono" *ngIf="payments.length > 0 || listPayments; else noPayments">
   <section class="actions">
-   <input type="text" placeholder="Pesquisar">
-   <a routerLink="/add-payment">Adicionar</a>
+    <input
+      type="search"
+      class="filter"
+      placeholder="Pesquisar"
+      autofocus
+      [(ngModel)]="filter"
+      (keyup)="filterPayments()"
+      (click)="clearFilter()"
+    >
+    <a routerLink="/add-payment">Adicionar</a>
   </section>
 
   <section class="table">
@@ -37,7 +45,9 @@
   </section>
 
   <section class="pagination">
-    <pagination-controls class="pagination-table" (pageChange)="currentPage = $event" nextLabel="" previousLabel="" [maxSize]="3" [directionLinks]="shouldShowDirectionLinks"></pagination-controls>
+    <button *ngFor="let page of visiblePages" (click)="goToPage(page)">
+      {{ page }}
+    </button>
   </section>
 </div>
 

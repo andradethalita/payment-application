@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PaymentData } from 'src/app/interfaces/payment-data';
 import { PaymentDataService } from 'src/app/services/payment/payment-data.service';
 
@@ -15,8 +16,11 @@ export class PaymentsDashboardComponent implements OnInit {
   paymentsPerPage: number = 5;
   showDeleteModal: boolean = false;
   paymentIdToDelete: number | null = null;
-  shouldShowDirectionLinks: boolean = false;
-
+  filter: string = '';
+  listPayments: PaymentData[] = [];
+  totalPages: number = 0;
+  allPages: number[] = [];
+  visiblePages: number[] = [];
 
   constructor(
     private paymentDataService: PaymentDataService
@@ -25,16 +29,19 @@ export class PaymentsDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPayments();
+
   }
 
   getPayments(): void {
     this.paymentDataService.getPayments().subscribe(payments => {
       this.payments = this.sortPayments(payments);
-      this.shouldShowDirectionLinks = this.calculateShouldShowDirectionLinks();
+      this.totalPages = Math.ceil(this.payments.length / this.paymentsPerPage);
+      this.allPages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+      this.updateVisiblePages();
     })
   }
 
-onCheckboxChange(payment: PaymentData): void {
+  onCheckboxChange(payment: PaymentData): void {
     this.paymentDataService.changeStatusIsPayed(payment).subscribe(
       () => {
         const updatedPaymentIndex = this.payments.findIndex(p => p.id === payment.id);
@@ -89,8 +96,30 @@ onCheckboxChange(payment: PaymentData): void {
     }
   }
 
-  calculateShouldShowDirectionLinks(): boolean {
-    const totalPages = Math.ceil(this.payments.length / this.paymentsPerPage);
-    return totalPages > 3;
+  filterPayments(): void {
+    this.currentPage = 1;
+    this.paymentDataService.listPayments(this.filter, this.currentPage)
+      .subscribe(listPayments => {
+        this.payments = this.sortPayments(listPayments);
+      })
+  }
+
+  clearFilter(): void {
+    this.filter = '';
+    this.getPayments();
+  }
+
+
+  updateVisiblePages(): void {
+    const maxVisiblePages = 3;
+    const startPage = Math.max(this.currentPage - Math.floor(maxVisiblePages / 2), 1);
+    const endPage = Math.min(startPage + maxVisiblePages - 1, this.totalPages);
+
+    this.visiblePages = this.allPages.slice(startPage - 1, endPage);
+  }
+
+  goToPage(pageNumber: number): void {
+    this.currentPage = pageNumber;
+    this.getPayments();
   }
 }
