@@ -6,11 +6,10 @@ import { PaymentDataService } from 'src/app/services/payment/payment-data.servic
 @Component({
   selector: 'app-edit-payment',
   templateUrl: './edit-payment.component.html',
-  styleUrls: ['./edit-payment.component.scss']
+  styleUrls: ['./edit-payment.component.scss'],
 })
 export class EditPaymentComponent implements OnInit {
-
-  pageTitle: string = "Editar Pagamento";
+  pageTitle: string = 'Editar Pagamento';
   formEditPayment!: FormGroup;
 
   constructor(
@@ -18,10 +17,10 @@ export class EditPaymentComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')
+    const id = this.route.snapshot.paramMap.get('id');
 
     this.paymentDataService.searchById(parseInt(id!)).subscribe((payment) => {
       this.formEditPayment = this.formBuilder.group({
@@ -30,16 +29,22 @@ export class EditPaymentComponent implements OnInit {
         title: [payment.title, Validators.required],
         value: [payment.value, [Validators.required, Validators.min(0)]],
         date: [payment.date, Validators.required],
-        isPayed: [payment.isPayed]
+        isPayed: [payment.isPayed],
       });
     });
   }
 
-  editPaymentData( ) {
-    if(this.formEditPayment.valid){
-      this.paymentDataService.editPaymentData(this.formEditPayment.value).subscribe(() => {
-        this.router.navigate(['/payments-dashboard']);
-      })
+  editPaymentData() {
+    if (this.formEditPayment.valid) {
+      this.paymentDataService
+        .editPaymentData(this.formEditPayment.value)
+        .subscribe(() => {
+          this.router.navigate(['/payments-dashboard']);
+        });
     }
+  }
+
+  cancelEdit() {
+    this.router.navigate(['/payments-dashboard']);
   }
 }

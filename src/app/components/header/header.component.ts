@@ -5,10 +5,9 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
   @Input() title!: string;
   showBackButton: boolean = false;
 
@@ -16,11 +15,13 @@ export class HeaderComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.route.url.subscribe(urlSegments => {
-      this.showBackButton = !urlSegments.some(segment => segment.path === 'payments-dashboard');
+    this.route.url.subscribe((urlSegments) => {
+      this.showBackButton = !urlSegments.some(
+        (segment) => segment.path === 'payments-dashboard'
+      );
     });
   }
 
@@ -32,5 +33,4 @@ export class HeaderComponent implements OnInit {
   toGoBack() {
     this.router.navigate(['/payments-dashboard']);
   }
-
 }

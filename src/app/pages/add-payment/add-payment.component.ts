@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -7,27 +6,26 @@ import { PaymentDataService } from 'src/app/services/payment/payment-data.servic
 @Component({
   selector: 'app-add-payment',
   templateUrl: './add-payment.component.html',
-  styleUrls: ['./add-payment.component.scss']
+  styleUrls: ['./add-payment.component.scss'],
 })
 export class AddPaymentComponent implements OnInit {
-
   formAddPayment!: FormGroup;
 
-  pageTitle: string = "Adicionar Pagamento";
+  pageTitle: string = 'Adicionar Pagamento';
 
   constructor(
     private paymentDataService: PaymentDataService,
     private router: Router,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.formAddPayment = this.formBuilder.group({
       name: ['', Validators.required],
       title: ['', Validators.required],
-      value: [null, [Validators.required, Validators.min(0)]],
+      value: [null, [Validators.required, Validators.min(1)]],
       date: [null, Validators.required],
-    })
+    });
   }
 
   addPaymentData() {

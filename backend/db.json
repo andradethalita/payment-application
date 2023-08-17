@@ -1,11 +1,142 @@
 {
   "payments": [
     {
-      "name": "ffdgfdg",
-      "title": "dfgfdgd",
-      "value": 1541,
-      "date": "1986-07-08",
-      "id": 1
+      "id": 1,
+      "name": "John Doe",
+      "username": "johndoe",
+      "title": "Pagamento de Aluguel",
+      "value": 1000,
+      "date": "2023-08-01",
+      "image": "user1.jpg",
+      "isPayed": true
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "username": "janesmith",
+      "title": "Compra no Supermercado",
+      "value": 150,
+      "date": "2023-08-05",
+      "isPayed": false
+    },
+    {
+      "id": 3,
+      "name": "Michael Johnson",
+      "username": "michaelj",
+      "title": "Pagamento de Contas",
+      "value": 250,
+      "date": "2023-08-10",
+      "image": "user3.jpg",
+      "isPayed": false
+    },
+    {
+      "id": 4,
+      "name": "Emily Williams",
+      "username": "emilyw",
+      "title": "Jantar Fora",
+      "value": 80,
+      "date": "2023-08-12",
+      "isPayed": false
+    },
+    {
+      "id": 5,
+      "name": "Robert Brown",
+      "username": "robertb",
+      "title": "Assinatura de Streaming",
+      "value": 15,
+      "date": "2023-08-15",
+      "image": "user5.jpg",
+      "isPayed": true
+    },
+    {
+      "id": 6,
+      "name": "Linda Wilson",
+      "username": "lindaw",
+      "title": "Compras Online",
+      "value": 200,
+      "date": "2023-08-18",
+      "isPayed": false
+    },
+    {
+      "id": 7,
+      "name": "David Anderson",
+      "username": "davida",
+      "title": "Gasolina",
+      "value": 50,
+      "date": "2023-08-20",
+      "image": "user7.jpg",
+      "isPayed": false
+    },
+    {
+      "id": 8,
+      "name": "Sarah Martinez",
+      "username": "sarahm",
+      "title": "Presente de Aniversário",
+      "value": 30,
+      "date": "2023-08-23",
+      "isPayed": false
+    },
+    {
+      "id": 9,
+      "name": "William Taylor",
+      "username": "williamt",
+      "title": "Cinema",
+      "value": 12,
+      "date": "2023-08-25",
+      "isPayed": true
+    },
+    {
+      "id": 10,
+      "name": "Jennifer White",
+      "username": "jenniferw",
+      "title": "Assinatura de Revista",
+      "value": 8,
+      "date": "2023-08-27",
+      "isPayed": false
+    },
+    {
+      "id": 11,
+      "name": "Richard Davis",
+      "username": "richardd",
+      "title": "Roupas Novas",
+      "value": 120,
+      "date": "2023-08-30",
+      "isPayed": true
+    },
+    {
+      "id": 12,
+      "name": "Mary Turner",
+      "username": "maryt",
+      "title": "Manutenção do Carro",
+      "value": 300,
+      "date": "2023-09-02",
+      "isPayed": false
+    },
+    {
+      "id": 13,
+      "name": "Christopher Walker",
+      "title": "Concerto II",
+      "value": 70,
+      "date": "2023-09-05",
+      "isPayed": true
+    },
+    {
+      "id": 14,
+      "name": "Patricia Hill",
+      "username": "patriciah",
+      "title": "Lazer",
+      "value": 40,
+      "date": "2023-09-08",
+      "isPayed": false
+    },
+    {
+      "id": 15,
+      "name": "Daniel Green",
+      "username": "danielg",
+      "title": "Assinatura de Academia",
+      "value": 25,
+      "date": "2023-09-10",
+      "isPayed": true
     }
   ],
   "users": [

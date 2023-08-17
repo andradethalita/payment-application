@@ -9,13 +9,25 @@ import { EditPaymentComponent } from './pages/edit-payment/edit-payment.componen
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'payments-dashboard', component: PaymentsDashboardComponent, canActivate: [AuthGuard] },
-  { path: 'add-payment', component: AddPaymentComponent, canActivate: [AuthGuard] },
-  { path: 'edit-payment/:id', component: EditPaymentComponent, canActivate: [AuthGuard] }
+  {
+    path: 'payments-dashboard',
+    component: PaymentsDashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'add-payment',
+    component: AddPaymentComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit-payment/:id',
+    component: EditPaymentComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

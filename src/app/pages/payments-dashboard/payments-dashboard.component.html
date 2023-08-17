@@ -4,8 +4,7 @@
   class="container-paymentData ff-roboto-mono"
   *ngIf="payments.length > 0 || (filter && listPayments); else noPayments"
 >
-<section class="actions">
-
+  <section class="actions">
     <input
       type="search"
       class="filter"
@@ -15,8 +14,8 @@
       (click)="clearFilter()"
       (input)="handleInput()"
     />
-  <a routerLink="/add-payment">Adicionar</a>
-</section>
+    <a routerLink="/add-payment">Adicionar</a>
+  </section>
 
   <section class="table">
     <table>
@@ -32,7 +31,11 @@
       </thead>
       <tbody>
         <tr
-        *ngFor="let payment of payments | paginate : { itemsPerPage: paymentsPerPage, currentPage: currentPage }"
+          *ngFor="
+            let payment of payments
+              | paginate
+                : { itemsPerPage: paymentsPerPage, currentPage: currentPage }
+          "
         >
           <td>{{ payment.name }}</td>
           <td>{{ payment.title }}</td>
@@ -61,7 +64,10 @@
     </table>
   </section>
 
-  <section class="pagination"  *ngIf="payments.length > 5 || listPayments.length > 5">
+  <section
+    class="pagination"
+    *ngIf="payments.length > 5 || listPayments.length > 5"
+  >
     <button
       *ngFor="let page of visiblePages"
       (click)="goToPage(page)"

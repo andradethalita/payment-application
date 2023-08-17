@@ -1,6 +1,5 @@
 .container-paymentData {
   margin: 40px;
-
 }
 
 a {
@@ -45,7 +44,8 @@ a {
     border-collapse: collapse;
     border: 1px solid black;
 
-    th, td {
+    th,
+    td {
       border: 1px solid black;
       padding: 10px;
       text-align: center;
@@ -72,6 +72,10 @@ a {
       padding: 5px 10px;
       cursor: pointer;
       margin-right: 5px;
+
+      &:hover {
+        background-color: #30b383;
+      }
     }
   }
 }
@@ -95,9 +99,8 @@ a {
     &.active {
       background-color: #238662;
 
-
-    color: #fff;
-          border-color: #238662;
+      color: #fff;
+      border-color: #238662;
     }
   }
 }
@@ -127,7 +130,6 @@ a {
     }
   }
 }
-
 
 .modal-delete {
   position: fixed;
@@ -176,13 +178,9 @@ a {
   .confirm-button {
     background-color: #c6cabc;
 
-
     &:hover {
       background-color: #238662;
       color: white;
     }
   }
 }
-
-
-

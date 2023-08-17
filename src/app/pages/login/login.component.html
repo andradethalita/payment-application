@@ -1,29 +1,59 @@
-<div class="login-container ff-inter ">
+<div class="login-container ff-inter">
   <form [formGroup]="loginForm" class="login-form">
     <h2>Acessar Pagamentos</h2>
     <section class="form-group">
       <label for="email">Email:</label>
-      <input type="email" formControlName="email" id="email" placeholder="email@email.com">
+      <input
+        type="email"
+        formControlName="email"
+        id="email"
+        placeholder="email@email.com"
+      />
 
       <div class="errors">
-        <div *ngIf="loginForm.get('email')?.hasError('required') && (loginForm.get('email')?.touched || loginAttempt)">
+        <div
+          *ngIf="
+            loginForm.get('email')?.hasError('required') &&
+            (loginForm.get('email')?.touched || loginAttempt)
+          "
+        >
           Campo obrigatório
         </div>
-        <div *ngIf="loginForm.get('email')?.hasError('email') && !loginForm.get('email')?.hasError('required') && (loginForm.get('email')?.dirty || loginAttempt)">
+        <div
+          *ngIf="
+            loginForm.get('email')?.hasError('email') &&
+            !loginForm.get('email')?.hasError('required') &&
+            (loginForm.get('email')?.dirty || loginAttempt)
+          "
+        >
           Email inválido
         </div>
       </div>
     </section>
     <section class="form-group">
       <label for="password">Senha:</label>
-      <input type="{{ showPassword ? 'text' : 'password'  }}" formControlName="password" id="password" placeholder="Digite sua senha">
+      <input
+        type="{{ showPassword ? 'text' : 'password' }}"
+        formControlName="password"
+        id="password"
+        placeholder="Digite sua senha"
+      />
       <div class="show-password">
         <legend for="showPassword">Mostrar senha</legend>
-        <input type="checkbox" id="showPassword" (change)="toggleShowPassword()">
+        <input
+          type="checkbox"
+          id="showPassword"
+          (change)="toggleShowPassword()"
+        />
       </div>
 
       <div class="errors">
-        <div *ngIf="loginForm.get('password')?.hasError('required') && (loginForm.get('password')?.touched || loginAttempt)">
+        <div
+          *ngIf="
+            loginForm.get('password')?.hasError('required') &&
+            (loginForm.get('password')?.touched || loginAttempt)
+          "
+        >
           Campo obrigatório
         </div>
       </div>
