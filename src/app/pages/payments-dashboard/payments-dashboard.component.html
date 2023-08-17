@@ -13,6 +13,7 @@
       [(ngModel)]="filter"
       (keyup)="filterPayments()"
       (click)="clearFilter()"
+      (input)="handleInput()"
     />
     <a routerLink="/add-payment">Adicionar</a>
   </section>
@@ -31,11 +32,7 @@
       </thead>
       <tbody>
         <tr
-          *ngFor="
-            let payment of payments
-              | paginate
-                : { itemsPerPage: paymentsPerPage, currentPage: currentPage }
-          "
+        *ngFor="let payment of payments | paginate : { itemsPerPage: paymentsPerPage, currentPage: currentPage }"
         >
           <td>{{ payment.name }}</td>
           <td>{{ payment.title }}</td>

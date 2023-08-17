@@ -23,7 +23,8 @@ export class PaymentsDashboardComponent implements OnInit {
   visiblePages: number[] = [];
 
   constructor(
-    private paymentDataService: PaymentDataService
+    private paymentDataService: PaymentDataService,
+    private router: Router
   ) { }
 
 
@@ -116,6 +117,15 @@ export class PaymentsDashboardComponent implements OnInit {
     const endPage = Math.min(startPage + maxVisiblePages - 1, this.totalPages);
 
     this.visiblePages = this.allPages.slice(startPage - 1, endPage);
+  }
+
+  handleInput(): void {
+    if (this.filter.trim() === '') {
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate([this.router.url]);
+      this.clearFilter();
+    }
   }
 
   goToPage(pageNumber: number): void {
