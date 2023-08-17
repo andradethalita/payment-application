@@ -2,21 +2,21 @@
 
 <div
   class="container-paymentData ff-roboto-mono"
-  *ngIf="payments.length > 0 || listPayments; else noPayments"
+  *ngIf="payments.length > 0 || (filter && listPayments); else noPayments"
 >
-  <section class="actions">
+<section class="actions">
+
     <input
       type="search"
       class="filter"
       placeholder="Pesquisar"
-      autofocus
       [(ngModel)]="filter"
       (keyup)="filterPayments()"
       (click)="clearFilter()"
       (input)="handleInput()"
     />
-    <a routerLink="/add-payment">Adicionar</a>
-  </section>
+  <a routerLink="/add-payment">Adicionar</a>
+</section>
 
   <section class="table">
     <table>
@@ -61,7 +61,7 @@
     </table>
   </section>
 
-  <section class="pagination">
+  <section class="pagination"  *ngIf="payments.length > 5 || listPayments.length > 5">
     <button
       *ngFor="let page of visiblePages"
       (click)="goToPage(page)"
@@ -77,17 +77,17 @@
 </ng-container>
 
 <ng-template #noPayments>
-  <div class="no-data-message">
-    <p>Não há dados de pagamento.</p>
-    <button class="add-payment-button">Adicionar</button>
+  <div class="container-noPayments ff-roboto-mono">
+    <p>Não há dados de pagamentos</p>
+    <a routerLink="/add-payment">Adicionar</a>
   </div>
 </ng-template>
 
 <ng-template #deleteModal>
-  <div class="modal-background ff-inter" (click)="cancelDelete()">
+  <div class="modal-delete ff-inter" (click)="cancelDelete()">
     <div class="modal-content">
       <h2>Confirmar Exclusão</h2>
-      <p>Você tem certeza que deseja excluir esse item?</p>
+      <p>Você tem certeza que deseja excluir esse dado de pagamento?</p>
       <div class="button-container">
         <button class="cancel-button" (click)="cancelDelete()">Cancelar</button>
         <button class="confirm-button" (click)="confirmDelete()">

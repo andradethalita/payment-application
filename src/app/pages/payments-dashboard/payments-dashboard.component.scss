@@ -11,6 +11,7 @@ a {
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   input {
     padding: 10px;
@@ -101,7 +102,34 @@ a {
   }
 }
 
-.modal-background {
+.container-noPayments {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  margin-top: 100px;
+
+  a {
+    background-color: white;
+    color: #238662;
+    font-weight: bold;
+    border-radius: 4px;
+    border: 1px solid #238662;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: #238662;
+      color: white;
+    }
+  }
+}
+
+
+.modal-delete {
   position: fixed;
   top: 0;
   left: 0;
@@ -112,6 +140,7 @@ a {
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  text-align: center;
 
   .modal-content {
     background-color: white;
@@ -124,7 +153,7 @@ a {
   .button-container {
     margin-top: 20px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
   }
 
   .cancel-button,
@@ -139,12 +168,21 @@ a {
 
   .cancel-button {
     background-color: #f0f0f0;
+    &:hover {
+      background-color: #7b7474;
+    }
   }
 
   .confirm-button {
-    background-color: #007bff;
-    color: white;
+    background-color: #c6cabc;
+
+
+    &:hover {
+      background-color: #238662;
+      color: white;
+    }
   }
 }
+
 
 

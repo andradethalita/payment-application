@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { map } from 'rxjs';
 import { PaymentData } from 'src/app/interfaces/payment-data';
 import { PaymentDataService } from 'src/app/services/payment/payment-data.service';
 
