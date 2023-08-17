@@ -75,13 +75,29 @@ a {
   }
 }
 
-.pagination{
-  margin-top: 10px;
+.pagination {
   display: flex;
   justify-content: flex-end;
+  margin-top: 5px;
 
-  .pagination-table ::ng-deep .ngx-pagination .current{
-    background-color: #238662;
+  button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #238662;
+    }
+
+    &.active {
+      background-color: #238662;
+
+
+    color: #fff;
+          border-color: #238662;
+    }
   }
 }
 

@@ -1,6 +1,9 @@
 <app-header [title]="pageTitle"></app-header>
 
-<div class="container-paymentData ff-roboto-mono" *ngIf="payments.length > 0 || listPayments; else noPayments">
+<div
+  class="container-paymentData ff-roboto-mono"
+  *ngIf="payments.length > 0 || listPayments; else noPayments"
+>
   <section class="actions">
     <input
       type="search"
@@ -10,7 +13,7 @@
       [(ngModel)]="filter"
       (keyup)="filterPayments()"
       (click)="clearFilter()"
-    >
+    />
     <a routerLink="/add-payment">Adicionar</a>
   </section>
 
@@ -27,17 +30,34 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let payment of payments | paginate: { itemsPerPage: paymentsPerPage, currentPage: currentPage}">
+        <tr
+          *ngFor="
+            let payment of payments
+              | paginate
+                : { itemsPerPage: paymentsPerPage, currentPage: currentPage }
+          "
+        >
           <td>{{ payment.name }}</td>
           <td>{{ payment.title }}</td>
-          <td>{{ payment.date | date:'dd/MM/yyyy' }}</td>
-          <td>{{ payment.value |  currency:'BRL' }}</td>
+          <td>{{ payment.date | date : "dd/MM/yyyy" }}</td>
+          <td>{{ payment.value | currency : "BRL" }}</td>
           <td>
-            <input type="checkbox" [checked]="payment.isPayed" (change)="onCheckboxChange(payment)"/>
+            <input
+              type="checkbox"
+              [checked]="payment.isPayed"
+              (change)="onCheckboxChange(payment)"
+            />
           </td>
           <td>
-            <button class="btn-actions" routerLink="/edit-payment/{{payment.id}}">editar</button>
-            <button class="btn-actions" (click)="openDeleteModal(payment.id)">excluir</button>
+            <button
+              class="btn-actions"
+              routerLink="/edit-payment/{{ payment.id }}"
+            >
+              editar
+            </button>
+            <button class="btn-actions" (click)="openDeleteModal(payment.id)">
+              excluir
+            </button>
           </td>
         </tr>
       </tbody>
@@ -45,7 +65,11 @@
   </section>
 
   <section class="pagination">
-    <button *ngFor="let page of visiblePages" (click)="goToPage(page)">
+    <button
+      *ngFor="let page of visiblePages"
+      (click)="goToPage(page)"
+      [ngClass]="{ active: page === currentPage }"
+    >
       {{ page }}
     </button>
   </section>
@@ -69,7 +93,9 @@
       <p>Você tem certeza que deseja excluir esse item?</p>
       <div class="button-container">
         <button class="cancel-button" (click)="cancelDelete()">Cancelar</button>
-        <button class="confirm-button" (click)="confirmDelete()">Confirmar</button>
+        <button class="confirm-button" (click)="confirmDelete()">
+          Confirmar
+        </button>
       </div>
     </div>
   </div>
