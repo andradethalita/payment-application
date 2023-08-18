@@ -25,11 +25,11 @@ json-server --version
 
 ```
 
-- Caso alguma dessas tecnologias não tenha instalado siga seu passo para instalação
+- Caso alguma dessas tecnologias não esteja instalada, siga seu passo para instalação:
 
 1. Instale o Node
 
-- [Node.js](https://nodejs.org/) Instalar versão LTS
+[Node.js](https://nodejs.org/) Instalar versão LTS
 
 2. Intale o Angular
 
@@ -53,7 +53,7 @@ git clone https://github.com/andradethalita/payment-application.git
 cd payment-application
 ```
 
-1. Instale as dependências do projeto:
+2. Instale as dependências do projeto:
 
 ```bash
 npm install
@@ -63,7 +63,7 @@ npm install
 
 O JSON Server será utilizado como o backend simulado para esta aplicação. Ele usará o arquivo db.json da pasta backend para criar uma API REST simulada.
 
-1. No diretório raiz do projeto, execute o seguinte comando para iniciar o servidor JSON:
+3. No diretório raiz do projeto, execute o seguinte comando para iniciar o servidor JSON:
 
 ```bash
 json-server ./backend/db.json
@@ -73,7 +73,7 @@ O servidor estará disponível em http://localhost:3000.
 
 ### Executando a Aplicação Angular
 
-1. No diretório raiz do projeto, execute o seguinte comando para iniciar a aplicação:
+4. No diretório raiz do projeto, execute o seguinte comando para iniciar a aplicação:
 
 ```bash
 ng serve
