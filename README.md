@@ -2,6 +2,12 @@
 
 Esta é uma aplicação CRUD Angular de Dados de Pagamentos que utiliza o JSON Server como um backend simulado. O JSON Server é uma ferramenta que permite criar uma API REST completa a partir de um arquivo JSON, o que é útil durante o desenvolvimento para simular interações com um backend real.
 
+
+
+https://github.com/andradethalita/payment-application/assets/82850176/29b13bbe-9010-4955-bb28-960520ed7373
+
+
+
 ## Versões utilizadas
 
 - Versão Node = v16.15.1 
