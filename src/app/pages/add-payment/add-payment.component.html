@@ -12,7 +12,7 @@
         <div
           *ngIf="
             formAddPayment.get('name')?.invalid &&
-            formAddPayment.get('name')?.touched
+            (formAddPayment.get('name')?.touched || addAttempt)
           "
         >
           O nome é obrigatório
@@ -28,7 +28,7 @@
         <div
           *ngIf="
             formAddPayment.get('title')?.invalid &&
-            formAddPayment.get('title')?.touched
+            (formAddPayment.get('title')?.touched || addAttempt)
           "
         >
           O título é obrigatório
@@ -44,7 +44,7 @@
         <div
           *ngIf="
             formAddPayment.get('value')?.invalid &&
-            formAddPayment.get('value')?.touched
+            (formAddPayment.get('value')?.touched || addAttempt)
           "
         >
           O valor é obrigatório e deve ser maior.
@@ -60,7 +60,7 @@
         <div
           *ngIf="
             formAddPayment.get('date')?.invalid &&
-            formAddPayment.get('date')?.touched
+            (formAddPayment.get('date')?.touched || addAttempt)
           "
         >
           A data é obrigatória.

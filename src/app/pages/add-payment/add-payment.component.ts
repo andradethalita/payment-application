@@ -9,9 +9,9 @@ import { PaymentDataService } from 'src/app/services/payment/payment-data.servic
   styleUrls: ['./add-payment.component.scss'],
 })
 export class AddPaymentComponent implements OnInit {
-  formAddPayment!: FormGroup;
-
   pageTitle: string = 'Adicionar Pagamento';
+  formAddPayment!: FormGroup;
+  addAttempt: boolean = false;
 
   constructor(
     private paymentDataService: PaymentDataService,
@@ -29,6 +29,8 @@ export class AddPaymentComponent implements OnInit {
   }
 
   addPaymentData() {
+    this.addAttempt = true;
+
     if (this.formAddPayment.valid) {
       const formData = this.formAddPayment.value;
       this.paymentDataService.createPaymentData(formData).subscribe(() => {
