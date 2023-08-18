@@ -83,4 +83,9 @@ A aplicação estará disponível em http://localhost:4200.
 
 ## Uso
 
+Dados para login:
+
+email: admin@gmail.com
+senha: 12345
+
 Agora você pode acessar a aplicação Angular em seu navegador e interagir com os dados simulados do JSON Server. Certifique-se de que a pasta backend e o arquivo db.json estejam configurados corretamente para que a API simulada funcione conforme o esperado.

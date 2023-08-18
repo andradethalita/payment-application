@@ -8,7 +8,7 @@
       "value": 1000,
       "date": "2023-08-01",
       "image": "user1.jpg",
-      "isPayed": true
+      "isPayed": false
     },
     {
       "id": 2,
@@ -59,13 +59,11 @@
     },
     {
       "id": 7,
-      "name": "David Anderson",
-      "username": "davida",
-      "title": "Gasolina",
-      "value": 50,
-      "date": "2023-08-20",
-      "image": "user7.jpg",
-      "isPayed": false
+      "name": "David Anderson Vial",
+      "title": "Gasolina AD",
+      "value": 55,
+      "date": "2023-08-25",
+      "isPayed": true
     },
     {
       "id": 8,
@@ -118,7 +116,7 @@
       "title": "Concerto II",
       "value": 70,
       "date": "2023-09-05",
-      "isPayed": true
+      "isPayed": false
     },
     {
       "id": 14,
@@ -130,13 +128,12 @@
       "isPayed": false
     },
     {
+      "name": "Laura Andrade",
+      "title": "Brinquedos",
+      "value": 285,
+      "date": "2023-07-26",
       "id": 15,
-      "name": "Daniel Green",
-      "username": "danielg",
-      "title": "Assinatura de Academia",
-      "value": 25,
-      "date": "2023-09-10",
-      "isPayed": true
+      "isPayed": false
     }
   ],
   "users": [
